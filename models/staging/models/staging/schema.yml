@@ -22,6 +22,9 @@ sources:
             description: "Gelir"
           - name: quantity
             description: "Satış adedi"
+        tests:
+          - unique:
+              column_name: "CONCAT(orders_id, pdt_id)"
       - name: product
         identifier: raw_gz_product
         description: "Ham ürün verileri"
