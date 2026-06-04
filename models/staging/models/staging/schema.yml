@@ -27,7 +27,10 @@ sources:
         description: "Ham ürün verileri"
         columns:
           - name: products_id
-            description: "Ürün ID'si"
+            description: "Ürün ID'si - Birincil anahtar"
+            tests:
+              - unique
+              - not_null
           - name: purchSE_PRICE
             description: "Satın alma fiyatı"
       - name: ship
@@ -35,7 +38,10 @@ sources:
         description: "Ham kargo verileri"
         columns:
           - name: orders_id
-            description: "Sipariş ID'si"
+            description: "Sipariş ID'si - Birincil anahtar"
+            tests:
+              - unique
+              - not_null
           - name: shipping_fee
             description: "Kargo ücreti"
           - name: ship_cost
