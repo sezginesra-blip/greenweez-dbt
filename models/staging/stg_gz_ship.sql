@@ -6,9 +6,9 @@ renamed as (
     select
         orders_id,
         shipping_fee,
-        shipping_fee_1,
+        CAST(ship_cost as FLOAT64) as ship_cost,
         logCost as log_cost,
-        ship_cost
+        
     from source
 )
 
