@@ -1,0 +1,53 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    description: "Greenweez ham veri tabloları"
+    tables:
+      - name: orders
+        identifier: raw_gz_orders
+        description: "Ham sipariş verileri"
+      - name: sales
+        identifier: raw_gz_sales
+        description: "Ham satış verileri"
+        columns:
+          - name: date_date
+            description: "Satış tarihi"
+          - name: orders_id
+            description: "Sipariş ID'si"
+          - name: pdt_id
+            description: "Ürün ID'si"
+          - name: revenue
+            description: "Gelir"
+          - name: quantity
+            description: "Satış adedi"
+        tests:
+          - unique:
+              column_name: "CONCAT(orders_id, pdt_id)"
+      - name: product
+        identifier: raw_gz_product
+        description: "Ham ürün verileri"
+        columns:
+          - name: products_id
+            description: "Ürün ID'si - Birincil anahtar"
+            tests:
+              - unique
+              - not_null
+          - name: purchSE_PRICE
+            description: "Satın alma fiyatı"
+      - name: ship
+        identifier: raw_gz_ship
+        description: "Ham kargo verileri"
+        columns:
+          - name: orders_id
+            description: "Sipariş ID'si - Birincil anahtar"
+            tests:
+              - unique
+              - not_null
+          - name: shipping_fee
+            description: "Kargo ücreti"
+          - name: ship_cost
+            description: "Kargo maliyeti"
+          - name: logCost
+            description: "Lojistik maliyeti"
