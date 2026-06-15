@@ -38,3 +38,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   greenweez_dbt:
     +materialized: view
+    circle_parcel:
+      +schema: 'parcel_dbt_dev'
