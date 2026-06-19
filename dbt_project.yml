@@ -37,6 +37,20 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   greenweez_dbt:
-    +materialized: view
-    circle_parcel:
-      +schema: 'parcel_dbt_dev'
+    +schema: 'parcel_dbt_dev'
+    +materialized: view  # This sets the default for the whole project
+
+    staging:
+      +materialized: view
+
+    intermediate:
+      +materialized: view
+
+    mart:
+      +materialized: table
+      finance:
+         +schema: 'finance'
+
+
+
+   
