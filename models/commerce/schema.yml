@@ -1,0 +1,113 @@
+version: 2
+
+sources:
+  - name: gz_raw_data
+    description: "Greenweez ham veri kümesi"
+    tables:
+      # =========================================================
+      # 1. ADWORDS
+      # =========================================================
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: "Google Adwords reklam performans verileri"
+        tests:
+          - unique:
+              column_name: "CONCAT(date_date, campaign_key)"
+          - not_null:
+              column_name: "CONCAT(date_date, campaign_key)"
+        columns:
+          - name: date_date
+            description: "Reklamın yayınlandığı tarih"
+          - name: paid_source
+            description: "Reklam kaynağı (Google)"
+          - name: campaign_key
+            description: "Kampanya benzersiz anahtarı"
+          - name: camPGN_name
+            description: "Kampanya adı"
+          - name: ads_cost
+            description: "Reklam maliyeti"
+          - name: impression
+            description: "Reklam gösterim sayısı"
+          - name: click
+            description: "Reklam tıklama sayısı"
+
+      # =========================================================
+      # 2. BING
+      # =========================================================
+      - name: bing
+        identifier: raw_gz_bing
+        description: "Bing reklam performans verileri"
+        tests:
+          - unique:
+              column_name: "CONCAT(date_date, campaign_key)"
+          - not_null:
+              column_name: "CONCAT(date_date, campaign_key)"
+        columns:
+          - name: date_date
+            description: "Reklamın yayınlandığı tarih"
+          - name: paid_source
+            description: "Reklam kaynağı (Bing)"
+          - name: campaign_key
+            description: "Kampanya benzersiz anahtarı"
+          - name: camPGN_name
+            description: "Kampanya adı"
+          - name: ads_cost
+            description: "Reklam maliyeti"
+          - name: impression
+            description: "Reklam gösterim sayısı"
+          - name: click
+            description: "Reklam tıklama sayısı"
+
+      # =========================================================
+      # 3. CRITEO
+      # =========================================================
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: "Criteo reklam performans verileri"
+        tests:
+          - unique:
+              column_name: "CONCAT(date_date, campaign_key)"
+          - not_null:
+              column_name: "CONCAT(date_date, campaign_key)"
+        columns:
+          - name: date_date
+            description: "Reklamın yayınlandığı tarih"
+          - name: paid_source
+            description: "Reklam kaynağı (Criteo)"
+          - name: campaign_key
+            description: "Kampanya benzersiz anahtarı"
+          - name: camPGN_name
+            description: "Kampanya adı"
+          - name: ads_cost
+            description: "Reklam maliyeti"
+          - name: impression
+            description: "Reklam gösterim sayısı"
+          - name: click
+            description: "Reklam tıklama sayısı"
+
+      # =========================================================
+      # 4. FACEBOOK
+      # =========================================================
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: "Facebook reklam performans verileri"
+        tests:
+          - unique:
+              column_name: "CONCAT(date_date, campaign_key)"
+          - not_null:
+              column_name: "CONCAT(date_date, campaign_key)"
+        columns:
+          - name: date_date
+            description: "Reklamın yayınlandığı tarih"
+          - name: paid_source
+            description: "Reklam kaynağı (Facebook)"
+          - name: campaign_key
+            description: "Kampanya benzersiz anahtarı"
+          - name: camPGN_name
+            description: "Kampanya adı"
+          - name: ads_cost
+            description: "Reklam maliyeti"
+          - name: impression
+            description: "Reklam gösterim sayısı"
+          - name: click
+            description: "Reklam tıklama sayısı"
